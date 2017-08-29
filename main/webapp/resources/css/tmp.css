@@ -1,0 +1,126 @@
+#wrapper{
+    width:800px;
+    margin: 0 auto;
+    position: relative;
+   
+}
+
+body{
+    background: linear-gradient(hsla(215, 16%, 20%, 1), hsla(215, 27%, 25%, 1));
+}
+
+#wrapper > header{
+margin: 1em 0em 1em 0em;
+}
+.navigation{
+ position: relative;
+}
+
+.contact-methods{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 1em;
+    text-decoration: none;
+}
+
+.contact-methods > *{
+    color: silver;
+    padding: .5em;
+    border: 1px solid transparent;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navigation .nav-button:not(.active-button):hover{
+ 
+}
+
+
+.contact-methods > *:hover{
+    border-bottom: 1px solid white;
+    color: white;
+    text-decoration: none;
+}
+.navigation ul, .navigation li{
+list-style: none;
+padding: 0;
+margin: 0;
+
+}
+
+.navigation li > *{
+    border-radius: 5px 10px 0px 0px;
+}
+.navigation  .nav-button, .navigation > ul > li{
+    display: inline-block;
+}
+
+#wrapper > article{
+    background: whitesmoke;
+    border-radius: 0px 5px 5px;
+}
+
+#wrapper > footer, #wrapper > article{
+        width:100%;
+        padding: 1em;
+        box-sizing: border-box;
+}
+
+.navigation .nav-button{
+    background: none;
+    border: none; 
+    padding: 1em;
+   font-family: 'Quicksand', sans-serif;
+     font-size: 1.15em;
+     color:silver;
+     outline: none;
+    text-decoration: none;
+}
+
+.navigation .nav-button *{
+    color: silver !important;
+}
+
+#wrapper header span{
+    display: block;
+
+   font-family: 'Quicksand', sans-serif;
+}
+
+#wrapper > article *{
+font-family: 'Quicksand', sans-serif;
+}
+.name{
+    font-size: 2em;
+    font-weight: bold;
+    color:whitesmoke;
+}
+
+#wrapper > footer{
+   font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    font-size: .75em;
+       color: silver;
+}
+
+.what{
+    font-size: 1.25em;
+}
+
+#wrapper #swap{
+        overflow: auto;
+}
+
+
+.navigation .active-button, .navigation .nav-button:hover{
+background: whitesmoke !important;
+color:black !important;
+
+}
+
+.navigation .active-button{
+
+}
+
+
+

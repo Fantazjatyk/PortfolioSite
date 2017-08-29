@@ -1,0 +1,25 @@
+    <html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+        <link th:href="@{/resources/css/errors.css}" rel="stylesheet"/>
+</head>
+    <body>
+        <div id="wrapper">
+            
+            <div>
+            <div>
+                <div>
+        <label id="message" th:text="${message}"></label>
+        </div>
+                <ul id="navs">
+            <li>
+            <a th:href="@{/}">Strona główna</a>
+            </li>
+            </ul>
+            </div>
+            </div>
+        </div>
+
+        </body>
+</html>

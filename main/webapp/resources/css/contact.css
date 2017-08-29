@@ -1,0 +1,42 @@
+#contact_methods  {
+  text-align: center;
+  padding: 2em;
+}
+
+#contact_methods a{
+    font-size: 1.25em;
+    padding: .5em;
+    margin: .25em;
+    background: #e8e8e8;
+    border: 1px solid;
+    border-color: silver;
+    color: black;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+#contact_methods a:hover{
+    background: #dbdbdb;
+    border-color: darkgray;
+}
+
+.github-link{
+ 
+    background: #3b3b3b;
+  
+    color: white;
+    border-radius: 3px;
+}
+
+
+
+.github-link:hover{
+
+}
+
+
+.email-link{
+    border: 3px solid;
+    border-color: black;
+    color: black;
+}

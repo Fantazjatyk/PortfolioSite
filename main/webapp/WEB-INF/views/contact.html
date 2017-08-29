@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link th:href="@{/resources/css/contact.css}" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="contact_methods">
+        <div>
+            <a th:href="${medias.github}" class="github-link">GitHub</a>
+
+            <a th:href="${medias.linkedin}" class="linkedin-link">LinkedIn</a>
+
+            <a href="media" th:href="${'mailto:' + email}" class="email-link">Email</a>
+        </div>
+        </ul>
+</body>
+
+</html>

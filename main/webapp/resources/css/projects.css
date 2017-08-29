@@ -1,0 +1,149 @@
+#projects{
+    width:100%;
+    display: flex;
+}
+
+
+#projects > article{
+    padding: 1em;
+}
+#projects > article{
+    flex:1;
+}
+
+#projects > nav{
+        border-right: 1px solid #dcdcdc;
+}
+#projects > article, #projects > nav{
+    display: inline-block;
+}
+
+#projects > nav ul, #projects > nav li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+        margin: .5em 0 .5em 0;
+}
+
+
+
+#projects nav .nav-button{
+    border:none;
+    background: none;
+    padding: 1em;
+    font-size: 1.15em;
+    outline: none;
+    display: inline-block;
+}
+
+
+
+
+.clear{
+    clear:both;
+}
+
+#projects nav .nav-button{
+      color: black !important;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid;
+    border-color: transparent;
+    border: 1px solid whitesmoke;
+}
+
+
+
+
+.divider{
+    height: 1px;
+    display: block;
+    margin: 1em;
+}
+#projects nav .nav-button:hover, #projects nav .active-button{
+
+         background: #e8e8e8;
+    /* background: white; */
+    border-color: silver;
+    width: 100%;
+}
+
+#projects #gallery img{
+    max-width:100%;
+}
+
+
+#images{
+   display: flex;
+}
+
+#links .nav-button{
+        padding: .75em;
+    background: #DBE1E8;
+    color: black;
+    font-size: 1.1em;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all .2s;
+}
+
+#links .nav-button:hover{
+    background: #c5cad0 !important;
+   
+}
+#links .nav-button:hover a{
+    text-decoration: none;
+}
+
+#links > div *{
+    color: black;
+}
+
+#title label{
+  font-size: 3em;  
+}
+
+
+#title {
+    padding: 0 1em 1em 0;
+}
+
+#header{
+    padding-top: 0em !important;
+}
+
+#projects_swap > #container section{
+padding: 1em;
+}
+
+#projects_swap{
+    overflow: hidden;
+}
+
+#projects > nav{
+    padding: 0 1em 0em 0em;
+}
+
+#desc{
+    background: whitesmoke;
+    border: 1px dashed silver;
+}
+
+
+.thumbnail img{
+
+}
+ .thumbnail img{
+max-height: 100%;
+max-width: 100%;
+display: block;
+margin: 0 auto;
+}
+
+.thumbnail{
+    margin: 1em;
+    width: 100px;
+    height: 100px;
+    background: black;
+}
