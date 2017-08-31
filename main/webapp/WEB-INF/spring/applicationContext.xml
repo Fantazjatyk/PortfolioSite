@@ -56,7 +56,7 @@ http://www.springframework.org/schema/aop/spring-aop.xsd
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <list>
-                <bean class="configuration.misc.StringToMapConverter" />
+                <bean class="code.misc.StringToMapConverter" />
             </list>
         </property>
     </bean>

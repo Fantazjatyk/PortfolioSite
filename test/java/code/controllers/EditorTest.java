@@ -69,14 +69,7 @@ public class EditorTest {
     /**
      * Test of editPersonal method, of class Editor.
      */
-    @Test
-    public void testEditPersonal() throws Exception {
-        mvc.perform(get("/edit/personal"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("personal_editor"))
-                .andExpect(model().attributeExists("personal", "social_media"));
 
-    }
 
     /**
      * Test of updatePersonal method, of class Editor.
@@ -89,13 +82,6 @@ public class EditorTest {
     /**
      * Test of editProject method, of class Editor.
      */
-    @Test
-    public void testEditProject() throws Exception {
-        mvc.perform(get("/edit/projects/crawler"))
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("project"))
-                .andExpect(view().name("project_editor"));
-    }
 
     /**
      * Test of listProjects method, of class Editor.
