@@ -23,10 +23,9 @@
  */
 package code.dao.mapping;
 
+import code.model.Project;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import michal.szymanski.util.Strings;
-import code.model.Project;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -56,12 +55,11 @@ public class ProjectMapper implements RowMapper<Project> {
     }
 
     public String[] splitByCommas(String string) {
-        String[] result = new String[0];
 
         if (string != null && !string.isEmpty()) {
-            result = StringUtils.tokenizeToStringArray(string, ",");
+            return StringUtils.tokenizeToStringArray(string, ",");
+        } else {
+            return new String[]{string};
         }
-
-        return result;
     }
 }

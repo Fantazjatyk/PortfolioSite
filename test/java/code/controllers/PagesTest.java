@@ -23,30 +23,27 @@
  */
 package code.controllers;
 
-import code.Conf;
+import code.TestConfiguration;
 import javax.transaction.Transactional;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {Conf.class})
+@ContextConfiguration(classes = {TestConfiguration.class})
 @Transactional
 @WebAppConfiguration
 public class PagesTest {
@@ -59,18 +56,11 @@ public class PagesTest {
     @Autowired
     WebApplicationContext ctx;
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         mvc = MockMvcBuilders.webAppContextSetup(ctx).build();
     }
 
-    /**
-     * Test of aboutme method, of class Pages.
-     */
     @Test
     public void testAboutme() throws Exception {
         mvc.perform(get("/"))
@@ -79,9 +69,6 @@ public class PagesTest {
                 .andExpect(model().attributeExists("page", "menu_active_tab", "text"));
     }
 
-    /**
-     * Test of projects method, of class Pages.
-     */
     @Test
     public void testProjects() throws Exception {
         mvc.perform(get("/projects"))
@@ -89,10 +76,5 @@ public class PagesTest {
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("page", "menu_active_tab"));
     }
-
-    /**
-     * Test of appendSharedPagesInfo method, of class Pages.
-     */
-
 
 }

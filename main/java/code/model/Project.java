@@ -23,18 +23,12 @@
  */
 package code.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import code.misc.StringArrayDeserializer;
 import code.misc.StringArraySerializer;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
-import michal.szymanski.util.Strings;
-import org.springframework.jdbc.core.RowMapper;
 
 /**
  *

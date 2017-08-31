@@ -23,13 +23,11 @@
  */
 package code.controllers;
 
-import code.Conf;
+import code.TestConfiguration;
 import javax.transaction.Transactional;
 import javax.ws.rs.core.MediaType;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.test.context.support.WithMockUser;
@@ -38,19 +36,17 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.*;
 
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {Conf.class})
+@ContextConfiguration(classes = {TestConfiguration.class})
 @Transactional
 @WebAppConfiguration
 @WithMockUser(roles = "ADMIN")
@@ -66,38 +62,11 @@ public class EditorTest {
         mvc = MockMvcBuilders.webAppContextSetup(ctx).apply(SecurityMockMvcConfigurers.springSecurity()).build();
     }
 
-    /**
-     * Test of editPersonal method, of class Editor.
-     */
-
-
-    /**
-     * Test of updatePersonal method, of class Editor.
-     */
-    @Test
-    public void testUpdatePersonal() throws Exception {
-
-    }
-
-    /**
-     * Test of editProject method, of class Editor.
-     */
-
-    /**
-     * Test of listProjects method, of class Editor.
-     */
     @Test
     public void testListProjects() throws Exception {
         mvc.perform(get("/edit/projects"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN));
-    }
-
-    /**
-     * Test of updateProject method, of class Editor.
-     */
-    @Test
-    public void testUpdateProject() {
     }
 
 }

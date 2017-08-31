@@ -23,18 +23,14 @@
  */
 package code.dao;
 
-import code.Conf;
+import code.TestConfiguration;
 import code.model.Personal;
-import java.util.HashMap;
 import java.util.Map;
 import javax.transaction.Transactional;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -44,7 +40,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {Conf.class})
+@ContextConfiguration(classes = {TestConfiguration.class})
 @WebAppConfiguration
 @Transactional
 public class PersonalDaoTest {
@@ -55,52 +51,24 @@ public class PersonalDaoTest {
     @Autowired
     PersonalDao dao;
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    /**
-     * Test of getAboutMe method, of class PersonalDao.
-     */
     @Test
     public void testGetAboutMe() {
         String result = dao.getAboutMe();
         assertFalse(result.isEmpty());
     }
 
-    /**
-     * Test of getEmail method, of class PersonalDao.
-     */
     @Test
     public void testGetEmail() {
         String result = dao.getEmail();
         assertFalse(result.isEmpty());
     }
 
-    /**
-     * Test of getSocialMedias method, of class PersonalDao.
-     */
     @Test
     public void testGetSocialMedias() throws Exception {
         Map result = dao.getSocialMedias();
         assertFalse(result.isEmpty());
     }
 
-    /**
-     * Test of update method, of class PersonalDao.
-     */
-    @Test
-    public void testUpdate() {
-        // Can't do it due to using pure JDBC in that class.
-    }
-
-    /**
-     * Test of getPersonal method, of class PersonalDao.
-     */
     @Test
     public void testGetPersonal() {
 

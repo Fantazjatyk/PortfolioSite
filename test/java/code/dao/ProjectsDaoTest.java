@@ -23,14 +23,12 @@
  */
 package code.dao;
 
-import code.Conf;
+import code.TestConfiguration;
 import code.model.Project;
 import java.util.List;
 import javax.transaction.Transactional;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -42,7 +40,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {Conf.class})
+@ContextConfiguration(classes = {TestConfiguration.class})
 @WebAppConfiguration
 @Transactional
 public class ProjectsDaoTest {
@@ -53,17 +51,6 @@ public class ProjectsDaoTest {
     @Autowired
     ProjectsDao dao;
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    /**
-     * Test of updateProject method, of class ProjectsDao.
-     */
     @Test
     public void testUpdateProject() {
         Project p = new Project();
@@ -85,9 +72,6 @@ public class ProjectsDaoTest {
         assertNotEquals(p, result);
     }
 
-    /**
-     * Test of isExists method, of class ProjectsDao.
-     */
     @Test
     public void testIsExists() {
         Project p = new Project();
@@ -101,9 +85,6 @@ public class ProjectsDaoTest {
         assertFalse(dao.isExists(Long.toString(System.currentTimeMillis())));
     }
 
-    /**
-     * Test of getProject method, of class ProjectsDao.
-     */
     @Test
     public void testInsertAndGetProject() {
         Project p = new Project();
@@ -124,16 +105,10 @@ public class ProjectsDaoTest {
 
     }
 
-    /**
-     * Test of getAll method, of class ProjectsDao.
-     */
     @Test
     public void testGetAll() {
         List<Project> projects = dao.getAll();
         assertFalse(projects.isEmpty());
     }
 
-    /**
-     * Test of insert method, of class ProjectsDao.
-     */
 }

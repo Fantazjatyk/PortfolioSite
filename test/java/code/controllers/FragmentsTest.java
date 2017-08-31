@@ -23,12 +23,10 @@
  */
 package code.controllers;
 
-import code.Conf;
+import code.TestConfiguration;
 import javax.transaction.Transactional;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -36,7 +34,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -46,7 +43,7 @@ import org.springframework.web.context.WebApplicationContext;
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {Conf.class})
+@ContextConfiguration(classes = {TestConfiguration.class})
 @Transactional
 @WebAppConfiguration
 public class FragmentsTest {
@@ -59,18 +56,11 @@ public class FragmentsTest {
     @Autowired
     WebApplicationContext ctx;
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         mvc = MockMvcBuilders.webAppContextSetup(ctx).build();
     }
 
-    /**
-     * Test of project method, of class Fragments.
-     */
     @Test
     public void testProject() throws Exception {
         mvc.perform(get("/projects/crawler"))

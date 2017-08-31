@@ -23,14 +23,11 @@
  */
 package code.configuration.misc;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.HashMap;
-import java.util.Map;
 import code.model.Project;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.Test;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Map;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  *
@@ -41,17 +38,7 @@ public class StringArraySerializerTest {
     public StringArraySerializerTest() {
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
 
-    @Before
-    public void setUp() {
-    }
-
-    /**
-     * Test of serialize method, of class StringArraySerializer.
-     */
     @Test
     public void testSerialize() throws Exception {
         Project p = new Project();

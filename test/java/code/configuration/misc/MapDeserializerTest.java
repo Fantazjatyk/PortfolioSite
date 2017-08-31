@@ -24,16 +24,13 @@
 package code.configuration.misc;
 
 import code.misc.MapDeserializer;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import code.model.Personal;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
 import java.util.Map;
-import code.model.Personal;
-import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -47,19 +44,12 @@ public class MapDeserializerTest {
     MapDeserializer md;
     ObjectMapper mapper;
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         this.md = new MapDeserializer();
         this.mapper = new ObjectMapper();
     }
 
-    /**
-     * Test of deserialize method, of class MapDeserializer.
-     */
     @Test
     public void testDeserialize() throws Exception {
         Personal p = new Personal();

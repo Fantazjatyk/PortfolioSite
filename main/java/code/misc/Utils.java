@@ -23,8 +23,6 @@
  */
 package code.misc;
 
-import java.util.Arrays;
-
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com

@@ -23,10 +23,8 @@
  */
 package code.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import code.misc.MapDeserializer;
 import code.misc.StringArrayDeserializer;
-import java.net.URL;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;

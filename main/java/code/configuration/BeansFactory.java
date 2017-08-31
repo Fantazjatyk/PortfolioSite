@@ -29,12 +29,9 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.validation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -57,12 +54,10 @@ public class BeansFactory {
         return new NamedParameterJdbcTemplate(dataSource());
     }
 
-    @Bean
-    @Qualifier("sample.properties")
-    public Properties getProperties() {
-        InputStream stream = this.getClass().getClassLoader().getResourceAsStream("sample.properties");
+    public Properties getProperties(String resName) {
+
         Properties properties = new Properties();
-        try {
+        try (InputStream stream = this.getClass().getClassLoader().getResourceAsStream(resName)) {
             properties.load(stream);
         } catch (IOException ex) {
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
@@ -71,27 +66,22 @@ public class BeansFactory {
     }
 
     @Bean
-    @Qualifier("application.properties")
-    public Properties getProperties2() {
-        InputStream is = this.getClass().getClassLoader().getResourceAsStream("application.properties");
-        Properties properties = new Properties();
-        try {
-            properties.load(is);
-        } catch (IOException ex) {
-            Logger.getLogger(BeansFactory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return properties;
+    @Qualifier("jdbc.properties")
+    public Properties getProperties() {
+        return getProperties("sample.properties");
     }
 
-    @Autowired
-    @Qualifier("sample.properties")
-    Properties sample;
+    @Bean
+    @Qualifier("application.properties")
+    public Properties getProperties2() {
+        return getProperties("application.properties");
+    }
 
     @Bean
     @Qualifier("dataSource")
     public javax.sql.DataSource dataSource() {
 
-        Properties properties = sample;
+        Properties properties = getProperties("jdbc.properties");
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName(properties.getProperty("jdbc.driver"));
         ds.setUrl(properties.getProperty("jdbc.url"));

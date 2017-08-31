@@ -28,10 +28,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -46,19 +45,12 @@ public class StringToMapConverterTest {
 
     StringToMapConverter converter;
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         this.mapper = new ObjectMapper();
         this.converter = new StringToMapConverter();
     }
 
-    /**
-     * Test of convert method, of class StringToMapConverter.
-     */
     @Test
     public void testConvert() throws JsonProcessingException {
         Map map = new HashMap();

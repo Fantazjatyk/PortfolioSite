@@ -24,10 +24,8 @@
 package code.configuration.misc;
 
 import code.misc.Utils;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  *
@@ -38,25 +36,11 @@ public class UtilsTest {
     public UtilsTest() {
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @Test
-    public void testSomeMethod() {
-    }
-
     @Test
     public void testStrArrayToString(){
         String[] arr = new String[]{"ala", "ma ", "kota"};
         String expected = "ala,ma ,kota";
         assertEquals(expected, Utils.stringfyStringArray(arr, ","));
     }
-
-
 
 }

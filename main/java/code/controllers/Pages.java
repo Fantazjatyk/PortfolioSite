@@ -23,23 +23,13 @@
  */
 package code.controllers;
 
+import code.dao.PersonalDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import code.dao.PersonalDao;
-import code.dao.ProjectsDao;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import code.model.Personal;
-import code.model.Project;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 /**
  *

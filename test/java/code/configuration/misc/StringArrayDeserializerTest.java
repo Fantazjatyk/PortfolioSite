@@ -23,14 +23,13 @@
  */
 package code.configuration.misc;
 
+import code.model.Project;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Arrays;
 import java.util.Map;
-import code.model.Project;
-import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -43,18 +42,11 @@ public class StringArrayDeserializerTest {
 
     ObjectMapper mapper;
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
     @Before
     public void setUp() {
         mapper = new ObjectMapper();
     }
 
-    /**
-     * Test of deserialize method, of class StringArrayDeserializer.
-     */
     @Test
     public void testDeserialize() throws Exception {
         String[] techs = new String[]{"java", " sql", "javascript"};

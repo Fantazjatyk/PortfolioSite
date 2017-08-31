@@ -23,18 +23,16 @@
  */
 package code.dao;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import code.misc.ProjectNotFoundException;
 import code.dao.mapping.ProjectMapper;
+import code.misc.ProjectNotFoundException;
+import code.model.Project;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
 import java.util.List;
-import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.stereotype.Repository;
-import code.model.Project;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 /**
  *
