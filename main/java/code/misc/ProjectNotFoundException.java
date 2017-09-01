@@ -27,6 +27,6 @@ package code.misc;
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
-public class ProjectNotFoundException extends RuntimeException{
+public class ProjectNotFoundException extends RuntimeException {
 
 }

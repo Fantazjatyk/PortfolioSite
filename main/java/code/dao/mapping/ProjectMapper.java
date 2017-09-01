@@ -23,9 +23,15 @@
  */
 package code.dao.mapping;
 
+import code.misc.ImagePOJOArrayDeserializer;
+import code.model.Image;
 import code.model.Project;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -37,6 +43,9 @@ import org.springframework.util.StringUtils;
 @Component
 public class ProjectMapper implements RowMapper<Project> {
 
+    @Autowired
+    ObjectMapper mapper;
+
     @Override
     public Project mapRow(ResultSet rs, int rowNum) throws SQLException {
         Project p = new Project();
@@ -45,7 +54,7 @@ public class ProjectMapper implements RowMapper<Project> {
         p.setDesc(rs.getString("desc"));
         p.setSite(rs.getString("project_site_link"));
         p.setSource(rs.getString("source_code_link"));
-        p.setImages(splitByCommas((rs.getString("images"))));
+        p.setImages(getImages(rs));
         p.setTechs(splitByCommas(rs.getString("used_techs")));
         p.setShortname(rs.getString("short_name"));
         p.setLeadingColor(rs.getString("leading_color"));
@@ -58,8 +67,19 @@ public class ProjectMapper implements RowMapper<Project> {
 
         if (string != null && !string.isEmpty()) {
             return StringUtils.tokenizeToStringArray(string, ",");
-        } else {
-            return new String[]{string};
         }
+        return new String[0];
     }
+
+    public Image[] getImages(ResultSet rs) {
+        String json;
+        try {
+            json = rs.getString("images");
+            return new ImagePOJOArrayDeserializer().deserialize(json);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProjectMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return new Image[0];
+    }
+
 }

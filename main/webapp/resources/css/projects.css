@@ -12,7 +12,8 @@
 }
 
 #projects > nav{
-        border-right: 1px solid #dcdcdc;
+    box-shadow: 5px 0px 5px -5px silver;
+    /*border-right: 1px solid #dcdcdc;*/
 }
 #projects > article, #projects > nav{
     display: inline-block;
@@ -22,7 +23,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-        margin: .5em 0 .5em 0;
+    margin: .5em 0 .5em 0;
 }
 
 
@@ -44,13 +45,11 @@
 }
 
 #projects nav .nav-button{
-      color: black !important;
-    border-radius: 5px;
+    color: black !important;
+    border-radius: 3px;
     width: 100%;
     text-align: left;
-    border: 1px solid;
-    border-color: transparent;
-    border: 1px solid whitesmoke;
+
 }
 
 
@@ -65,10 +64,13 @@ pre{
 }
 #projects nav .nav-button:hover, #projects nav .active-button{
 
-         background: #e8e8e8;
+
+    background: linear-gradient(#f1f1f1, #eeeeee);
     /* background: white; */
-    border-color: silver;
+    /* border-color: silver; */
     width: 100%;
+    box-shadow: 0px 1px 3px 0px silver;
+
 }
 
 #projects #gallery img{
@@ -77,11 +79,11 @@ pre{
 
 
 #images{
-   display: flex;
+    display: flex;
 }
 
 #links .nav-button{
-        padding: .75em;
+    padding: .75em;
     background: #DBE1E8;
     color: black;
     font-size: 1.1em;
@@ -91,11 +93,13 @@ pre{
 }
 
 #links .nav-button:hover{
-    background: #c5cad0 !important;
-   
+    background: #f1f1f1 !important;
+    box-shadow: 0px 1px 3px 0px silver;
+
 }
 #links .nav-button:hover a{
     text-decoration: none;
+    color: black !important;
 }
 
 #links > div *{
@@ -103,12 +107,12 @@ pre{
 }
 
 #title label{
-  font-size: 3em;  
+    font-size: 3em;
 }
 
 
 #title {
-    padding: 0 1em 1em 0;
+    padding: 0 1em .75em 0;
 }
 
 #header{
@@ -116,7 +120,7 @@ pre{
 }
 
 #projects_swap > #container section{
-padding: 1em;
+    padding: 1em;
 }
 
 #projects_swap{
@@ -128,19 +132,20 @@ padding: 1em;
 }
 
 #desc{
-    background: whitesmoke;
+    background: #f3f3f3;
     border: 1px dashed silver;
+    border-radius: 3px;
 }
 
 
 .thumbnail img{
 
 }
- .thumbnail img{
-max-height: 100%;
-max-width: 100%;
-display: block;
-margin: 0 auto;
+.thumbnail img{
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
 }
 
 .thumbnail{
@@ -148,4 +153,5 @@ margin: 0 auto;
     width: 100px;
     height: 100px;
     background: black;
+    box-shadow: 0px 10px 15px -9px grey;
 }

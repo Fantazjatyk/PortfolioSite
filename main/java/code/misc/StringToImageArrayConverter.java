@@ -21,44 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package code.controllers;
+package code.misc;
 
-import code.dao.PersonalDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import code.model.Image;
+import org.springframework.core.convert.converter.Converter;
 
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
-@Controller
-public class Pages {
+public class StringToImageArrayConverter implements Converter<String, Image[]> {
 
-    @Autowired
-    PersonalDao pd;
-
-    @RequestMapping(value = {"/aboutme", "/"}, method = RequestMethod.GET)
-    public String aboutme(Model model) {
-        model.addAttribute("page", "aboutme");
-        model.addAttribute("menu_active_tab", "aboutme");
-        model.addAttribute("text", pd.getAboutMe());
-        return "template";
-    }
-
-    @RequestMapping("/projects")
-    public String projects(Model model) {
-        model.addAttribute("page", "projects");
-        model.addAttribute("menu_active_tab", "projects");
-        return "template";
-    }
-
-    @ModelAttribute
-    public void appendSharedPagesInfo(Model model) {
-        model.addAttribute("email", pd.getEmail());
+    @Override
+    public Image[] convert(String source) {
+        return new ImagePOJOArrayDeserializer().deserialize(source);
     }
 
 }

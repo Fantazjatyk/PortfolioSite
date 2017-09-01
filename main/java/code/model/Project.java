@@ -23,6 +23,8 @@
  */
 package code.model;
 
+import code.misc.ImagePOJOArrayDeserializer;
+import code.misc.ImagePOJOArraySerializer;
 import code.misc.StringArrayDeserializer;
 import code.misc.StringArraySerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -38,9 +40,9 @@ public class Project {
 
     private String name;
     private String desc;
-    @JsonSerialize(using = StringArraySerializer.class)
-    @JsonDeserialize(using = StringArrayDeserializer.class)
-    private String[] images;
+    @JsonSerialize(using = ImagePOJOArraySerializer.class)
+    @JsonDeserialize(using = ImagePOJOArrayDeserializer.class)
+    private Image[] images = new Image[0];
     @JsonSerialize(using = StringArraySerializer.class)
     @JsonDeserialize(using = StringArrayDeserializer.class)
     private String[] animations;
@@ -56,11 +58,11 @@ public class Project {
     private String leadingColor;
     private String leadingTextColor;
 
-    public String[] getImages() {
+    public Image[] getImages() {
         return images;
     }
 
-    public void setImages(String[] images) {
+    public void setImages(Image[] images) {
         this.images = images;
     }
 

@@ -1,120 +1,120 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <style>
-        body {
-            margin: 1em;
-            background: linear-gradient(hsla(215, 16%, 20%, 1), hsla(215, 27%, 25%, 1));
-        }
+    <head>
+        <style>
+            body {
+                margin: 1em;
+                background: linear-gradient(hsla(215, 16%, 20%, 1), hsla(215, 27%, 25%, 1));
+            }
 
-        form div {
-            margin: 1em;
-            padding: .5em;
-            border: 1px solid silver;
-            background: whitesmoke;
-        }
+            form div {
+                margin: 1em;
+                padding: .5em;
+                border: 1px solid silver;
+                background: whitesmoke;
+            }
 
-        input,
-        textarea {
-            display: block;
-            width: 100%;
-        }
+            input,
+            textarea {
+                display: block;
+                width: 100%;
+            }
 
-        input[type=submit] {
-            width: auto;
-            margin: 0 0 0 auto;
-            padding: .5em;
-            /* background: grey; */
-            /* border: 1px solid grey; */
-            /* color: white; */
-            font-size: large;
-        }
+            input[type=submit] {
+                width: auto;
+                margin: 0 0 0 auto;
+                padding: .5em;
+                /* background: grey; */
+                /* border: 1px solid grey; */
+                /* color: white; */
+                font-size: large;
+            }
 
-        header {
-            padding: .5em .5em .5em 0;
-            font-weight: bold;
-        }
+            header {
+                padding: .5em .5em .5em 0;
+                font-weight: bold;
+            }
 
-        textarea {
-            resize: vertical;
-        }
-    </style>
-</head>
+            textarea {
+                resize: vertical;
+            }
+        </style>
+    </head>
 
-<body>
-    <form method="post" th:action="@{__${project.shortname}__}">
-        <input type="hidden" name="shortname" th:value="${project.shortname}"/>
-        <div>
-            <header>
-                Nazwa
-            </header>
-            <input type="text" th:value="${project.name}" name="name" placeholder="nazwa projektu" />
-        </div>
-        <div>
-            <header>
-                Kolor główny
-            </header>
-            <input type="text" th:value="${project.leadingColor}" name="leadingColor" placeholder="" />
-        </div>
-        <div>
-            <header>
-                Kolor główny tekstu
-            </header>
-            <input type="text" th:value="${project.leadingTextColor}" name="leadingTextColor" placeholder="" />
-        </div>
-        <div>
-            <header>
-                Strona
-            </header>
-            <input type="text" th:value="${project.site}" name="site" placeholder="strona projektu" />
-        </div>
-        <div>
-            <header>
-                Kod źródłowy
-            </header>
-            <input type="text" th:value="${project.source}" name="source" placeholder="kod źródłowy" />
-        </div>
-        <div>
-            <header>
-                Opis
-            </header>
-            <textarea name="desc" placeholder="opis projektu" th:inline="text">[[${project.desc}]]</textarea>
-        </div>
-        <div>
-            <header>
-                Wykorzystane technologie
-            </header>
-
-
-            <input type="text" th:value="${project.techs}" name="techs" placeholder="wykorzystane technologie" />
-        </div>
-        <div>
-            <header>
-                Obrazy
-            </header>
-            <input type="text" th:value="${project.images}" name="images" placeholder="obrazy" />
-        </div>
-        <div>
-            <header>
-                Animacje
-            </header>
-
-            <input type="text" th:value="${project.animations}" name="project_animations" placeholder="animacje" />
-        </div>
-        <div>
-            <header>
-                Video
-            </header>
-            <input type="text" th:value="${project.videos}" name="project_videos" placeholder="video" />
-        </div>
-
-        <input type="submit" />
-    </form>
+    <body>
+        <form method="post" th:action="@{__${project.shortname}__}">
+            <input type="hidden" name="shortname" th:value="${project.shortname}"/>
+            <div>
+                <header>
+                    Nazwa
+                </header>
+                <input type="text" th:value="${project.name}" name="name" placeholder="nazwa projektu" />
+            </div>
+            <div>
+                <header>
+                    Kolor główny
+                </header>
+                <input type="text" th:value="${project.leadingColor}" name="leadingColor" placeholder="" />
+            </div>
+            <div>
+                <header>
+                    Kolor główny tekstu
+                </header>
+                <input type="text" th:value="${project.leadingTextColor}" name="leadingTextColor" placeholder="" />
+            </div>
+            <div>
+                <header>
+                    Strona
+                </header>
+                <input type="text" th:value="${project.site}" name="site" placeholder="strona projektu" />
+            </div>
+            <div>
+                <header>
+                    Kod źródłowy
+                </header>
+                <input type="text" th:value="${project.source}" name="source" placeholder="kod źródłowy" />
+            </div>
+            <div>
+                <header>
+                    Opis
+                </header>
+                <textarea name="desc" placeholder="opis projektu" th:inline="text">[[${project.desc}]]</textarea>
+            </div>
+            <div>
+                <header>
+                    Wykorzystane technologie
+                </header>
 
 
+                <input type="text" th:value="${project.techs}" name="techs" placeholder="wykorzystane technologie" />
+            </div>
+            <div>
+                <header>
+                    Obrazy
+                </header>
+                <input type="text" th:value="${project.images}" name="images" placeholder="obrazy" />
+            </div>
+            <div>
+                <header>
+                    Animacje
+                </header>
+
+                <input type="text" th:value="${project.animations}" name="project_animations" placeholder="animacje" />
+            </div>
+            <div>
+                <header>
+                    Video
+                </header>
+                <input type="text" th:value="${project.videos}" name="project_videos" placeholder="video" />
+            </div>
+
+            <input type="submit" />
+        </form>
 
 
 
-</body>
+
+
+    </body>
 
 </html>

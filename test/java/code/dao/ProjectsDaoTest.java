@@ -24,7 +24,11 @@
 package code.dao;
 
 import code.TestConfiguration;
+import code.model.Image;
 import code.model.Project;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import javax.transaction.Transactional;
 import static org.junit.Assert.*;
@@ -59,6 +63,7 @@ public class ProjectsDaoTest {
         p.setDesc("this is ain't real project");
         p.setSite("project_site");
         p.setSource("project_source");
+        p.setImages(new Image[0]);
         dao.insert(p);
 
         Project updated = dao.getProject("test");
@@ -86,13 +91,19 @@ public class ProjectsDaoTest {
     }
 
     @Test
-    public void testInsertAndGetProject() {
+    public void testInsertAndGetProject() throws MalformedURLException {
+        String originalStrUrl = "http://original";
+        Image[] expectedImages = new Image[]{
+            new Image(new URL(originalStrUrl), new URL("http://miniature")),
+            new Image(new URL(originalStrUrl + "2"), new URL("http://miniature2"))
+        };
         Project p = new Project();
         p.setName("Test");
         p.setShortname("test");
         p.setDesc("this is ain't real project");
         p.setSite("project_site");
         p.setSource("project_source");
+        p.setImages(expectedImages);
 
         dao.insert(p);
 
@@ -102,6 +113,9 @@ public class ProjectsDaoTest {
         assertEquals(p.getDesc(), project.getDesc());
         assertEquals(p.getSite(), project.getSite());
         assertEquals(p.getSource(), project.getSource());
+        assertTrue(Arrays.equals(expectedImages, p.getImages()));
+        assertEquals(originalStrUrl, p.getImages()[0].getOriginal().toString());
+        assertEquals(originalStrUrl + "2", p.getImages()[1].getOriginal().toString());
 
     }
 

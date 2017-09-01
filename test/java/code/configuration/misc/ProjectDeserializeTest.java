@@ -21,44 +21,51 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package code.controllers;
+package code.configuration.misc;
 
-import code.dao.PersonalDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import code.model.Image;
+import code.model.Project;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.Map;
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
-@Controller
-public class Pages {
+public class ProjectDeserializeTest {
 
-    @Autowired
-    PersonalDao pd;
-
-    @RequestMapping(value = {"/aboutme", "/"}, method = RequestMethod.GET)
-    public String aboutme(Model model) {
-        model.addAttribute("page", "aboutme");
-        model.addAttribute("menu_active_tab", "aboutme");
-        model.addAttribute("text", pd.getAboutMe());
-        return "template";
+    public ProjectDeserializeTest() {
     }
 
-    @RequestMapping("/projects")
-    public String projects(Model model) {
-        model.addAttribute("page", "projects");
-        model.addAttribute("menu_active_tab", "projects");
-        return "template";
+    ObjectMapper mapper;
+
+    @Before
+    public void setUp() {
+        mapper = new ObjectMapper();
     }
 
-    @ModelAttribute
-    public void appendSharedPagesInfo(Model model) {
-        model.addAttribute("email", pd.getEmail());
+    @Test
+    public void testDeserialize() throws Exception {
+        String[] techs = new String[]{"java", " sql", "javascript"};
+        Image[] expectedImages = new Image[]{
+            new Image(new URL("http://original"), new URL("http://miniature")),
+            new Image(new URL("http://original" + "2"), new URL("http://miniature2"))
+        };
+        Project p = new Project();
+        p.setTechs(techs);
+        p.setImages(expectedImages);
+        Map map = mapper.convertValue(p, Map.class);
+
+        Project result = mapper.convertValue(map, Project.class);
+        String[] resultTechs = result.getTechs();
+        assertTrue(Arrays.equals(techs, resultTechs));
+        assertEquals(expectedImages[0], result.getImages()[0]);
+
     }
 
 }

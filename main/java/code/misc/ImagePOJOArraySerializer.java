@@ -21,44 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package code.controllers;
+package code.misc;
 
-import code.dao.PersonalDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import code.model.Image;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
 
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
-@Controller
-public class Pages {
+public class ImagePOJOArraySerializer extends StdSerializer<Image[]> {
 
-    @Autowired
-    PersonalDao pd;
+    @Override
+    public void serialize(Image[] imgs, JsonGenerator arg1, SerializerProvider arg2) throws IOException {
 
-    @RequestMapping(value = {"/aboutme", "/"}, method = RequestMethod.GET)
-    public String aboutme(Model model) {
-        model.addAttribute("page", "aboutme");
-        model.addAttribute("menu_active_tab", "aboutme");
-        model.addAttribute("text", pd.getAboutMe());
-        return "template";
+        arg1.writeString(new ObjectMapper().writeValueAsString(imgs));
+
     }
 
-    @RequestMapping("/projects")
-    public String projects(Model model) {
-        model.addAttribute("page", "projects");
-        model.addAttribute("menu_active_tab", "projects");
-        return "template";
+    public ImagePOJOArraySerializer() {
+        super(Image[].class);
     }
-
-    @ModelAttribute
-    public void appendSharedPagesInfo(Model model) {
-        model.addAttribute("email", pd.getEmail());
-    }
-
 }

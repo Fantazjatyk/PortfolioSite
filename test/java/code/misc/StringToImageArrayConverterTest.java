@@ -21,32 +21,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package code.configuration.misc;
+package code.misc;
 
-import code.model.Project;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.Map;
-import static org.junit.Assert.*;
+import code.model.Image;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
-public class StringArraySerializerTest {
+public class StringToImageArrayConverterTest {
 
-    public StringArraySerializerTest() {
+    public StringToImageArrayConverterTest() {
     }
 
-
     @Test
-    public void testSerialize() throws Exception {
-        Project p = new Project();
-        String[] techs =  new String[]{"java", "sql", "javascript "};
-        String expected = "java,sql,javascript ";
-        p.setTechs(techs);
-        Map result = new ObjectMapper().convertValue(p, Map.class);
-        assertEquals(expected, result.get("techs"));
+    public void testConvert() {
+        String input = "[{\"original\": \"original1\", \"miniature\":\"miniature1\"}, {\"original\": \"original2\", \"miniature\":\"miniature2\"}]";
+        Image[] result = new StringToImageArrayConverter().convert(input);
+        assertEquals(2, result.length);
     }
 
 }

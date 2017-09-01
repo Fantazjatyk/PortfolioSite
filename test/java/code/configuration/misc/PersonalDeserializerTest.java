@@ -36,9 +36,9 @@ import org.junit.Test;
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
-public class MapDeserializerTest {
+public class PersonalDeserializerTest {
 
-    public MapDeserializerTest() {
+    public PersonalDeserializerTest() {
     }
 
     MapDeserializer md;

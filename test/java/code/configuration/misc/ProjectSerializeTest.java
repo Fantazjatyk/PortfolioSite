@@ -21,44 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package code.controllers;
+package code.configuration.misc;
 
-import code.dao.PersonalDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import code.model.Project;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Map;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
-@Controller
-public class Pages {
+public class ProjectSerializeTest {
 
-    @Autowired
-    PersonalDao pd;
-
-    @RequestMapping(value = {"/aboutme", "/"}, method = RequestMethod.GET)
-    public String aboutme(Model model) {
-        model.addAttribute("page", "aboutme");
-        model.addAttribute("menu_active_tab", "aboutme");
-        model.addAttribute("text", pd.getAboutMe());
-        return "template";
+    public ProjectSerializeTest() {
     }
 
-    @RequestMapping("/projects")
-    public String projects(Model model) {
-        model.addAttribute("page", "projects");
-        model.addAttribute("menu_active_tab", "projects");
-        return "template";
-    }
-
-    @ModelAttribute
-    public void appendSharedPagesInfo(Model model) {
-        model.addAttribute("email", pd.getEmail());
+    @Test
+    public void testSerialize() throws Exception {
+        Project p = new Project();
+        String[] techs = new String[]{"java", "sql", "javascript "};
+        String expected = "java,sql,javascript ";
+        p.setTechs(techs);
+        Map result = new ObjectMapper().convertValue(p, Map.class);
+        assertEquals(expected, result.get("techs"));
     }
 
 }

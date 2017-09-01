@@ -1,39 +1,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 
-    <script id="model_data" th:inline="javascript">
-        /*<![CDATA[*/
+        <script id="model_data" th:inline="javascript">
+            /*<![CDATA[*/
 
-        var modelParams = /*[[${personal}]]*/ null;
-        /*]]>*/
-        $(document).ready(el => {
-            $("#model_data").remove();
-        });
-    </script>
-    <style>
-        body{
-            background: linear-gradient(hsla(215, 16%, 20%, 1), hsla(215, 27%, 25%, 1));
-        }
-        form>input,
-        form>textarea {
-            display: block;
-            margin-bottom: 1em;
-            width: 100%;
+            var modelParams = /*[[${personal}]]*/ null;
+            /*]]>*/
+            $(document).ready(el => {
+                $("#model_data").remove();
+            });
+        </script>
+        <style>
+            body{
+                background: linear-gradient(hsla(215, 16%, 20%, 1), hsla(215, 27%, 25%, 1));
+            }
+            form>input,
+            form>textarea {
+                display: block;
+                margin-bottom: 1em;
+                width: 100%;
 
-            padding: .5em;
-        }
-    </style>
-    <script th:src="@{/resources/js/personal_editor.js}"></script>
-</head>
+                padding: .5em;
+            }
+        </style>
+        <script th:src="@{/resources/js/personal_editor.js}"></script>
+    </head>
 
 
-<body>
-    <form method="POST" th:action="@{personal}">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-    </form>
-</body>
+    <body>
+        <form method="POST" th:action="@{personal}">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        </form>
+    </body>
 
 </html>

@@ -21,43 +21,57 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package code.configuration.misc;
+package code.model;
 
-import code.model.Project;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.Arrays;
-import java.util.Map;
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URL;
 
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
  */
-public class StringArrayDeserializerTest {
+public class Image {
 
-    public StringArrayDeserializerTest() {
+    private URL original;
+    private URL miniature;
+
+    public Image(URL original, URL miniature) {
+        this.original = original;
+        this.miniature = miniature;
     }
 
-    ObjectMapper mapper;
-
-    @Before
-    public void setUp() {
-        mapper = new ObjectMapper();
+    public URL getOriginal() {
+        return original;
     }
 
-    @Test
-    public void testDeserialize() throws Exception {
-        String[] techs = new String[]{"java", " sql", "javascript"};
-        Project p = new Project();
-        p.setTechs(techs);
-        Map map = mapper.convertValue(p, Map.class);
+    public URL getMiniature() {
+        return miniature;
+    }
 
-        Project result = mapper.convertValue(map, Project.class);
-        String[] resultTechs = result.getTechs();
-        assertTrue(Arrays.equals(techs, resultTechs));
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Image other = (Image) obj;
+        if (!this.original.toString().equals(other.original.toString())) {
+            return false;
+        }
+        if (!this.miniature.toString().equals(other.miniature.toString())) {
+            return false;
+        }
+        return true;
     }
 
 }

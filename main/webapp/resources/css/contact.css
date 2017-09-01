@@ -1,6 +1,6 @@
 #contact_methods  {
-  text-align: center;
-  padding: 2em;
+    text-align: center;
+    padding: 2em;
 }
 
 #contact_methods a{
@@ -21,9 +21,9 @@
 }
 
 .github-link{
- 
+
     background: #3b3b3b;
-  
+
     color: white;
     border-radius: 3px;
 }

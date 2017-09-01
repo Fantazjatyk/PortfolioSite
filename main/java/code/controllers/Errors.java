@@ -30,7 +30,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
 /**
  *
  * @author Micha³ Szymañski, kontakt: michal.szymanski.aajar@gmail.com
@@ -38,8 +37,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class Errors {
 
-    @RequestMapping(value="errors", method=RequestMethod.GET)
-    public String handle(Model model, HttpServletRequest rq, HttpServletResponse rs){
+    @RequestMapping(value = "errors", method = RequestMethod.GET)
+    public String handle(Model model, HttpServletRequest rq, HttpServletResponse rs) {
         int errorCode = rs.getStatus();
         model.addAttribute("code", errorCode);
         model.addAttribute("message", errorCode);

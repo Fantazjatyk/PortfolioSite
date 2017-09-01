@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2017 Micha≥ SzymaÒski, kontakt: michal.szymanski.aajar@gmail.com.
+ * Copyright 2017 Micha≈Ç Szyma≈Ñski, kontakt: michal.szymanski.aajar@gmail.com.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,6 @@ package code.controllers;
 
 import code.TestConfiguration;
 import javax.transaction.Transactional;
-import javax.ws.rs.core.MediaType;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,7 +42,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 /**
  *
- * @author Micha≥ SzymaÒski, kontakt: michal.szymanski.aajar@gmail.com
+ * @author Micha≈Ç Szyma≈Ñski, kontakt: michal.szymanski.aajar@gmail.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestConfiguration.class})
@@ -64,9 +63,10 @@ public class EditorTest {
 
     @Test
     public void testListProjects() throws Exception {
-        mvc.perform(get("/edit/projects"))
+        mvc.perform(get("/edit/projects/crawler"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN));
+                .andExpect(model().attributeExists("project"))
+                .andExpect(view().name("project_editor"));
     }
 
 }

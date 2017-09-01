@@ -1,52 +1,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-    <link th:href="@{/resources/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Josefin+Sans|Lora|Quicksand" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/resources/css/tmp.css}" />
-    <script th:src="@{/resources/js/menu.js}"></script>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        <link th:href="@{/resources/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Josefin+Sans|Lora|Quicksand" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/resources/css/tmp.css}" />
+        <script th:src="@{/resources/js/menu.js}"></script>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-100591850-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <meta name="menu_active_tab" th:content="${menu_active_tab}" />
-</head>
+            ga('create', 'UA-100591850-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <meta name="menu_active_tab" th:content="${menu_active_tab}" />
+    </head>
 
-<body>
-    <div id="wrapper">
-        <header>
-            <span class="name">MICHAŁ SZYMAŃSKI</span>
-        </header>
-        <nav class="navigation">
-            <ul>
-                <li><a class="nav-button" id="aboutme" href="aboutme">O mnie</a></li>
-                <li><a class="nav-button" id="projects" href="projects">Projekty</a></li>
-            </ul>
-            <div class="contact-methods">
-                <a th:href="@{/contact/media/github}">GitHub</a>
-                <a th:href="@{/contact/media/linkedin}">LinkedIn</a>
-                <a th:href="${'mailto:' + email}" th:text="${email}">Email</a>
-            </div>
-        </nav>
-        <article>
+    <body>
+        <div id="wrapper">
             <header>
+                <span class="name">MICHAŁ SZYMAŃSKI</span>
             </header>
-            <div th:include="__${page}__" />
-        </article>
-        <footer>
-            ©2017 Michał Szymański
-        </footer>
-    </div>
-</body>
+            <nav class="navigation">
+                <ul>
+                    <li><a class="nav-button" id="aboutme" href="aboutme">O mnie</a></li>
+                    <li><a class="nav-button" id="projects" href="projects">Projekty</a></li>
+                </ul>
+                <div class="contact-methods">
+                    <a th:href="@{/contact/media/github}">GitHub</a>
+                    <a th:href="@{/contact/media/linkedin}">LinkedIn</a>
+                    <a th:href="${'mailto:' + email}" th:text="${email}">Email</a>
+                </div>
+            </nav>
+            <article>
+                <header>
+                </header>
+                <div th:include="__${page}__" />
+            </article>
+            <footer>
+                @2017 Michał Szymański
+            </footer>
+        </div>
+    </body>
 
 </html>
 </footer>

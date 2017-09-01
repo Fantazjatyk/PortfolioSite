@@ -1,52 +1,52 @@
 <html>
 
-<head>
-    <meta name="leadingColor" th:content="${project.leadingColor}" />
-    <meta name="leadingTextColor" th:content="${project.leadingTextColor}" />
-</head>
+    <head>
+        <meta name="leadingColor" th:content="${project.leadingColor}" />
+        <meta name="leadingTextColor" th:content="${project.leadingTextColor}" />
+    </head>
 
-<body>
-    <div id="container">
-        <section id="header">
-            <div id="title">
-                <label data-customizer-color th:text="${project.name}"></label>
-            </div>
-            <div id="links" data-customizer-background="div">
-                <div class="nav-button"><a th:href="@{${project.site}}">Strona projektu</a></div>
-                <div class="nav-button"><a th:href="@{${project.source}}">GitHub</a></div>
-            </div>
-        </section>
-        <nav>
-            <ul data-customizer-color="this, li > a">
-                <li><a href="#desc">Opis</a></li>
-                <li><a href="#used_techs">Wykorzystane technologie</a></li>
-                <li><a href="#videos">Video</a></li>
-                <li><a href="#animations">Animacje</a></li>
-                <li><a href="#gallery">Galeria</a></li>
-            </ul>
-        </nav>
-        <span class="divider" data-customizer-background/>
-        <section id="desc">
-            <pre th:text="${project.desc}" />
-        </section>
-        <section id="used_techs">
-            Wykorzystane technologie:
-            <ul>
-                <li th:each="tech : ${project.techs}" th:text="${tech}" />
-            </ul>
-        </section>
-        <section id="videos">
-        </section>
-        <section id="animations">
-        </section>
-        <section id="gallery">
-            <div id="images">
-                <div class="thumbnail" th:each="image : ${project.images}">
-                    <a th:href="@{${image}}"><img th:src="@{${image}}"></img></a>
+    <body>
+        <div id="container">
+            <section id="header">
+                <div id="title">
+                    <label data-customizer-color th:text="${project.name}"></label>
                 </div>
-            </div>
-        </section>
-    </div>
-</body>
+                <div id="links" data-customizer-background="div">
+                    <div class="nav-button"><a th:href="@{${project.site}}">Strona projektu</a></div>
+                    <div class="nav-button"><a th:href="@{${project.source}}">GitHub</a></div>
+                </div>
+            </section>
+            <nav>
+                <ul data-customizer-color="this, li > a">
+                    <li><a href="#desc">Opis</a></li>
+                    <li><a href="#used_techs">Wykorzystane technologie</a></li>
+                    <li><a href="#videos">Video</a></li>
+                    <li><a href="#animations">Animacje</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                </ul>
+            </nav>
+            <span class="divider" data-customizer-background/>
+            <section id="desc">
+                <pre th:text="${project.desc}" />
+            </section>
+            <section id="used_techs">
+                Wykorzystane technologie:
+                <ul>
+                    <li th:each="tech : ${project.techs}" th:text="${tech}" />
+                </ul>
+            </section>
+            <section id="videos">
+            </section>
+            <section id="animations">
+            </section>
+            <section id="gallery">
+                <div id="images">
+                    <div class="thumbnail" th:each="image : ${project.images}">
+                        <a th:href="@{${image.original}}"><img th:src="@{${image.miniature}}"></img></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
 
 </html>

@@ -37,7 +37,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testStrArrayToString(){
+    public void testStrArrayToString() {
         String[] arr = new String[]{"ala", "ma ", "kota"};
         String expected = "ala,ma ,kota";
         assertEquals(expected, Utils.stringfyStringArray(arr, ","));

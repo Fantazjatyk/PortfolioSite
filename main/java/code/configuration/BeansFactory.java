@@ -68,7 +68,7 @@ public class BeansFactory {
     @Bean
     @Qualifier("jdbc.properties")
     public Properties getProperties() {
-        return getProperties("sample.properties");
+        return getProperties("jdbc.properties");
     }
 
     @Bean
