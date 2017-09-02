@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2017 Micha≥ SzymaÒski, kontakt: michal.szymanski.aajar@gmail.com.
+ * Copyright 2017 Micha≈Ç Szyma≈Ñski, kontakt: michal.szymanski.aajar@gmail.com.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author Micha≥ SzymaÒski, kontakt: michal.szymanski.aajar@gmail.com
+ * @author Micha≈Ç Szyma≈Ñski, kontakt: michal.szymanski.aajar@gmail.com
  */
 @Controller
 public class Fragments {
